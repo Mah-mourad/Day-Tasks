@@ -57,7 +57,7 @@ function fillTask(sheetId) {
             let content = `
                 <div class="task" id="task-${index + 1}">
                     <div class="name">
-                        <input class="check" type="checkbox" onclick="removeTask(this, ${index + 1})" ${task.isDone ? 'checked' : ''}>
+                        <input class="check" type="checkbox" onclick="toggleTask(${sheetId}, ${index})" ${task.isDone ? 'checked' : ''}>
                         <label>${index + 1}. ${task.title}</label>
                     </div>
                     <div class="time">
@@ -68,6 +68,15 @@ function fillTask(sheetId) {
             taskContainer.innerHTML += content;
         });
     }
+}
+
+// Function to toggle task status when the checkbox is clicked
+function toggleTask(sheetId, taskId) {
+    const sheet = sheets[sheetId - 1];
+    const task = sheet.tasks[taskId];
+    task.isDone = !task.isDone; // Toggle the isDone status
+
+    saveToLocalStorage(); // Save the updated task status to localStorage
 }
 
 // Show custom prompt for adding a task to a specific sheet
@@ -130,18 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addNewSheet(); // Add a default sheet if none are present
     }
 });
-
-// Function to remove the task and reorder remaining tasks
-function removeTask(checkbox, taskId) {
-    const sheetId = parseInt(checkbox.closest('.body').id.split('-')[1]);
-    const sheet = sheets[sheetId - 1];
-
-    if (sheet) {
-        sheet.tasks.splice(taskId - 1, 1); // Remove the task from the array based on its index
-        fillTask(sheetId); // Refill the task list to maintain correct order and numbering
-        saveToLocalStorage(); // Save the updated task list to localStorage
-    }
-}
 
 // Show the color palette to change the background of the sheet
 function showColorPalette(sheetId) {
