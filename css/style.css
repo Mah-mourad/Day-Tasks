@@ -65,28 +65,6 @@ input.check{
     width: 18px;
     height: 18px;
 }
-@media (max-width:435px) {
-    .body .tasks .task{
-        font-size: 13px;
-    }
-    .body .tasks .task .name{
-        font-size: 17px;
-    }
-    input.check{
-        width: 12px;
-        height: 12px;
-    }
-    .body{
-        height: 300px;
-        background-color: #55B4B0;
-        margin: 30px;
-        padding: 15px;
-    }
-    .body .tasks{
-        width: 100%;
-        min-height: 87%;
-    }
-}
 .new{
     display: flex;
     justify-content: center;
@@ -198,6 +176,31 @@ background: linear-gradient(90deg, rgba(82,153,141,1) 0%, rgba(82,177,142,1) 30%
     box-sizing: border-box;
     font-size: 25px;
     border-radius: 25px;
+}
+@media (max-width:435px) {
+    .body .tasks .task{
+        font-size: 13px;
+    }
+    .body .tasks .task .name{
+        font-size: 17px;
+    }
+    input.check{
+        width: 12px;
+        height: 12px;
+    }
+    .body{
+        height: 300px;
+        background-color: #55B4B0;
+        margin: 30px;
+        padding: 15px;
+    }
+    .body .tasks{
+        width: 100%;
+        min-height: 87%;
+    }
+    #custom-prompt input{
+        font-size: 15px;
+    }
 }
 #custom-prompt .btn,
 #custom-prompt .btn1{
