@@ -200,6 +200,7 @@ background: linear-gradient(90deg, rgba(82,153,141,1) 0%, rgba(82,177,142,1) 30%
     }
     #custom-prompt input{
         font-size: 15px;
+        padding: 3px;
     }
 }
 #custom-prompt .btn,
